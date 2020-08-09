@@ -1,7 +1,7 @@
 class Ground extends ChildClass{
     display(){
-        super.display();
+        var pos = this.body.position;
         fill(255, 255, 0);
-        rect(x, y, this.width, this.height);
+        rect(pos.x, pos.y, this.width, this.height);
     }
 }
