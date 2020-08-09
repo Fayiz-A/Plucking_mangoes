@@ -7,6 +7,7 @@ const Constraint = Matter.Constraint;
 
 var ground;
 var boy;
+var tree;
 
 function setup() {
 	createCanvas(1500, 700);
@@ -16,17 +17,19 @@ function setup() {
 
 	ground = new Ground(width/2, height-50, width, 20);
 	boy = new Boy(200, 575, 100, 250);
+	tree = new Tree(1200, 390, 400, 550);
 }
 
 
 function draw() {
-	background(0);
+	background(200);
 	Engine.update(engine);
 
 	rectMode(CENTER);
 	
-	ground.display();
 	boy.display();
+	tree.display();
+	ground.display();
 
   	drawSprites();
 }
