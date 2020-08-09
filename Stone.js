@@ -4,17 +4,19 @@ class Stone extends ChildClass{
 
         var options = {
             isStatic: false,
-            friction: 1,
-            restitution: 0,
-            density: 1.2
+            restitution:0,
+            friction:1.0,
+            density:1.3
         }
 
-        this.body = Bodies.rectangle(x, y, width, height, options);
+        this.body = Bodies.circle(x, y, width/2, options);
+        World.add(world, this.body);
         this.image = loadImage("stone.png");
     }
 
     display() {
         imageMode(CENTER);
         image(this.image, this.body.position.x, this.body.position.y, this.width, this.height);
+
     }
 }

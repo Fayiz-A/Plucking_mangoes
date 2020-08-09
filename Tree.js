@@ -1,7 +1,10 @@
-class Tree extends ChildClass{
+class Tree{
     constructor(x, y, width, height){
-        super(x, y, width, height);
         this.image = loadImage("tree.png");
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
     }
     display(){
         imageMode(CENTER);
