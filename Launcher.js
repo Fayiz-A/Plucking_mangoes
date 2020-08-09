@@ -16,6 +16,10 @@ class Launcher {
         this.constraint.bodyA = null;
     }
 
+    attach(bodyA) {
+        this.constraint.bodyA = bodyA;
+    }
+
     display(){
         if(this.constraint.bodyA){
             var startPos = this.constraint.bodyA.position;

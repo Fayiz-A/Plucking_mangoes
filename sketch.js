@@ -3,7 +3,6 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
-const Render = Matter.Render;
 
 var ground;
 var boy;
@@ -12,6 +11,8 @@ var mangoArray = [];
 
 var launcher;
 var mango;
+
+var timePressed = 0;
 
 function setup() {
 	createCanvas(1500, 700);
@@ -29,16 +30,15 @@ function setup() {
 	}
 
 	launcher = new Launcher(stone.body, {x: 260, y: 540}, 0.1);
-	console.log(stone);
 }
 
 
 function draw() {
 	background(200);
 	Engine.update(engine);
-	
+
+	displayText("Press space_bar to get another stone", "Green", 500, 100);
 	rectMode(CENTER);
-	fill(0, 0, 0);
 
 	boy.display();
 	ground.display();
@@ -52,6 +52,13 @@ function draw() {
 		detectCollision(stone, mangoArray[i]);
 	}
 
+	if(timePressed < 1){
+		if(keyIsDown(32)){
+			Body.setPosition(stone.body, {x: 240, y: 550});
+			launcher.attach(stone.body);
+			timePressed++;
+		}
+	}
 }
 
 function mouseDragged() {
@@ -60,6 +67,7 @@ function mouseDragged() {
 
 function mouseReleased() {
 	launcher.fly();
+	timePressed = 0;
 }
 
 function detectCollision(lstone,lmango){
@@ -73,5 +81,4 @@ function detectCollision(lstone,lmango){
 
 		Matter.Body.setStatic(lmango.body,false);
 	}	
-	//if(wall.x - car.x < wall.width/2 + car.width/2)
 }
