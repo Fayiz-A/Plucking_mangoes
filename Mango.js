@@ -8,7 +8,7 @@ class Mango extends ChildClass{
             friction: 1.0 
         }
 
-        this.body = Bodies.circle(x, y, width/2, options);
+        this.body = Bodies.circle(x, y, width/3, options);
         World.add(world, this.body);
 
         this.image = loadImage("mango.png");
