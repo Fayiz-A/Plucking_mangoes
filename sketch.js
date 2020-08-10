@@ -59,7 +59,7 @@ function draw() {
 	stone.display();
 	launcher.display();
 
-	for(var i=0; i<mangoArray.length; i++){
+	for(var i=0; i < mangoArray.length; i++){
 		detectCollision(stone, mangoArray[i]);
 	}
 

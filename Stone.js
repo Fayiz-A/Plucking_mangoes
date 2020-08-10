@@ -1,11 +1,11 @@
-class Stone extends ChildClass{
+class Stone extends ParentClass{
     constructor(x, y, width, height){
         super(x, y, width, height);
 
         var options = {
             isStatic: false,
-            restitution:0,
-            friction:1.0,
+            restitution:0.2,
+            friction:0.9,
             density:1.3
         }
 
@@ -17,6 +17,5 @@ class Stone extends ChildClass{
     display() {
         imageMode(CENTER);
         image(this.image, this.body.position.x, this.body.position.y, this.width, this.height);
-
     }
 }
